@@ -2,7 +2,7 @@ import java.util.Arrays;
 
 /**
  * A class that implements a gameboard for CandyLand.
- * @author Corona 
+ * @author Corona
  */
 public class GameBoard {
 	
