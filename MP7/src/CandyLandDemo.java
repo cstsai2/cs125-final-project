@@ -9,7 +9,7 @@ public class CandyLandDemo {
 		setUp();
 		//Game Start
 		//while winner is not found
-		//players take turns playing- loop
+		//players take turns playing- loop //print status of players each turn
 		//break, display winner name
 	}
 	
@@ -20,6 +20,11 @@ public class CandyLandDemo {
 		String card = myCard.draw();
 		//Move according to card
 		//...
+	}
+	
+	private void printStatus() {
+		//prints the status of each player each turn
+		//ex. player one is x number of spaces from finish, player 2 is y number, etc
 	}
 	
 	private static void setUp() {
