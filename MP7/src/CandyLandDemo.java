@@ -19,9 +19,18 @@ public class CandyLandDemo {
 		Card myCard = new Card();
 		String card = myCard.draw();
 		//Move according to card
+		if (card.length() <= 2) { //if a color or double color card has been drawn
+			move(player, card);
+		} //else move to other specified location
+		
 		//...
 	}
 	
+	private void move(Player player, String card) {
+		int endPosition = -1; // 
+		
+		//dont forget about bridges!
+	}
 	private void printStatus() {
 		//prints the status of each player each turn
 		//ex. player one is x number of spaces from finish, player 2 is y number, etc
