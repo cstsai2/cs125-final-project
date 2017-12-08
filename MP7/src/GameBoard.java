@@ -35,6 +35,7 @@ public class GameBoard {
 		
 		for (int i = 1; i < 135; i++) { //index 0 is start, index 135 is finish
 			int temp = i;
+			//Set the board colors
 			if (IntStream.of(red).anyMatch(x -> x == temp)) {
 				board[i] = new Position("r");
 			} else if (IntStream.of(orange).anyMatch(x -> x == temp)) {
@@ -47,6 +48,12 @@ public class GameBoard {
 				board[i] = new Position("b");
 			} else if (IntStream.of(purple).anyMatch(x -> x == temp)) {
 				board[i] = new Position("p");
+			}
+			//Set special conditions
+			if (IntStream.of(bridge).anyMatch(x -> x==temp)) {
+				board[i].setBridge(true);
+			} else if (IntStream.of(sticky).anyMatch(x -> x == temp)) {
+				board[i].setSticky(true);
 			}
 		}
 	}
