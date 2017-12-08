@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.stream.*;
 
 /**
  * A class that implements a gameboard for CandyLand.
@@ -18,7 +19,8 @@ public class GameBoard {
 		//int[] color2 = {}; 
 		//.... rest of the colors
 		for (int i = 1; i < board.length; i++) {
-			if (Arrays.asList(red).contains(i)) {
+			int temp = i;
+			if (IntStream.of(red).anyMatch(x -> x == temp)) {
 				board[i] = new Position("red");
 			} //else if orange, else if yellow, etc
 		}
