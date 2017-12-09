@@ -13,10 +13,11 @@ public class Player {
 	private boolean isSkipped;
 	
 	/**
-	 * Empty Constructor.
+	 * Default Constructor.
 	 */
 	public Player() {
-		
+		this.position = 0;
+		this.isSkipped = false;
 	}
 	/**
 	 * Creates a new player with a given name and age.
