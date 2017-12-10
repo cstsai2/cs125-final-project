@@ -20,6 +20,15 @@ public class Player {
 		this.isSkipped = false;
 	}
 	/**
+	 * Copy Constructor.
+	 */
+	public Player(Player other) {
+		this.name = other.name;
+		this.age = other.age;
+		this.position = other.position;
+		this.isSkipped = other.isSkipped;
+	}
+	/**
 	 * Creates a new player with a given name and age.
 	 * Each player begins at position 0 and does not have their turn skipped.
 	 * @param name - the name for the new player
