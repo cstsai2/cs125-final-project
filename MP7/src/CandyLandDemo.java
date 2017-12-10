@@ -9,12 +9,25 @@ public class CandyLandDemo {
 	public static void main(String[] args) {
 		setUp();
 		boolean isWinnerFound = false;
+		int playerTurn = 0;
 		while(!isWinnerFound) {
 			//players take turn
-			isWinnerFound = checkWinner();
+			if (!players[playerTurn].getSkipCondition()) {
+				System.out.println("It is now " + players[playerTurn].getName() + "'s turn.");
+				turn(players[playerTurn]);
+				//Only check for winner if  player has taken a turn
+				isWinnerFound = checkWinner();
+			} else { //if the player is skipped, they do not take a turn, and p.isSKipped = false
+				System.out.println(players[playerTurn].getName() + "'s turn has been skipped.");
+				players[playerTurn].setSkipCondition(false);
+			}
+			//increments playerTurn so next player will have their turn.
+			playerTurn++;
+			if (playerTurn > players.length - 1) { //if the last player has just taken their turn
+				playerTurn = 0;						// it wraps back around to the first player
+			}
 		}
-		//break, display winner name
-		//s.out.pr(winner.name has won);
+		System.out.println("Congratulations, " + winner.getName() + " has won this round of CandyLand.");
 	}
 	
 	/**
@@ -31,7 +44,7 @@ public class CandyLandDemo {
 		return false;
 	}
 	
-	private void turn(Player player) {
+	private static void turn(Player player) {
 		//specified player takes a turn
 		//Draws a card
 		Card myCard = new Card();
@@ -44,7 +57,7 @@ public class CandyLandDemo {
 		//...
 	}
 	
-	private void move(Player player, String card) {
+	private static void move(Player player, String card) {
 		int endPosition = -1; // 
 		
 		//dont forget about bridges!
