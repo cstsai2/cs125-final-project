@@ -23,7 +23,6 @@ public class CandyLandDemo {
 				
 				turn(players[playerTurn]); //problem
 				isWinnerFound = checkWinner();
-				System.out.println(" ");
 				printStatus();
 			} else { 
 				
@@ -73,7 +72,7 @@ public class CandyLandDemo {
 		System.out.println(player.getName() + " has drawn a card '" + card + "'." );
 		if (card.length() <= 2) { //if a color or double color card has been drawn
 			move(player, card); 
-			System.out.print(player.getName() + " has moved.");
+			System.out.println(player.getName() + " has moved.");
 		} else {//a character card has been drawn
 			//All the character cards
 			int[] characters = {9, 20, 42, 69, 92, 102};
