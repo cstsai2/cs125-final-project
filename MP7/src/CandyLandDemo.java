@@ -5,12 +5,30 @@ public class CandyLandDemo {
 	private static Scanner reader;
 	private static Player[] players;
 	private static GameBoard board;
+	private static Player winner;
 	public static void main(String[] args) {
 		setUp();
-		//Game Start
-		//while winner is not found
-		//players take turns playing- loop //print status of players each turn
+		boolean isWinnerFound = false;
+		while(!isWinnerFound) {
+			//players take turn
+			isWinnerFound = checkWinner();
+		}
 		//break, display winner name
+		//s.out.pr(winner.name has won);
+	}
+	
+	/**
+	 * Checks if any player has advanced past position 134 (the final position) and has thus won the game.
+	 * @return true if above condition is found, false otherwise
+	 */
+	private static boolean checkWinner() {
+		for (Player p : players) {
+			if (p.getPosition() > 134) {
+				winner = new Player(p);
+				return true;
+			}
+		}
+		return false;
 	}
 	
 	private void turn(Player player) {
@@ -31,11 +49,16 @@ public class CandyLandDemo {
 		
 		//dont forget about bridges!
 	}
-	private void printStatus() {
+	private static void printStatus() {
+		for (Player p : players) {
+			System.out.println(p.getName() + " is currently " + (134 - p.getPosition()) + " spaces from finish.");
+		}
 		//prints the status of each player each turn
 		//ex. player one is x number of spaces from finish, player 2 is y number, etc
 	}
-	
+	/**
+	 * Initialize necessary components for game play. Set up and initialize the players as well.
+	 */
 	private static void setUp() {
 		//initialize scanner
 		reader = new Scanner(System.in);
@@ -89,7 +112,7 @@ public class CandyLandDemo {
 	}
 	/**
 	 * Reorders the player array such that it is in order of ascending ages.
-	 * This is the standard playing order.
+	 * This is will also print the standard playing order after reordering the players appropriately.
 	 */
 	private static void turnOrder() {
 		for (int i = 0; i < players.length - 1; i++) {
