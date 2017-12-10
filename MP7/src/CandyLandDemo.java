@@ -7,6 +7,9 @@ public class CandyLandDemo {
 	private static GameBoard board;
 	private static Player winner;
 	public static void main(String[] args) { //change
+
+		reader = new Scanner(System.in);
+		board = new GameBoard();
 		setUp();
 		
 		boolean isWinnerFound = false;
@@ -17,7 +20,7 @@ public class CandyLandDemo {
 			if (!players[playerTurn].getSkipCondition()) {
 				
 				System.out.println("It is now " + players[playerTurn].getName() + "'s turn.");
-				turn(players[playerTurn]);
+				turn(players[playerTurn]); //problem
 				isWinnerFound = checkWinner();
 				
 			} else { 
@@ -31,17 +34,25 @@ public class CandyLandDemo {
 			if (playerTurn > players.length - 1) { //if the last player has just taken their turn
 				playerTurn = 0;						// it wraps back around to the first player
 			}
+			printStatus();
+			System.out.println("*******************************");
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		System.out.println("Congratulations, " + winner.getName() + " has won this round of CandyLand.");
 	}
 	
 	/**
-	 * Checks if any player has advanced past position 134 (the final position) and has thus won the game.
+	 * Checks if any player has reached position 135. 135 is the position of the finish.
 	 * @return true if above condition is found, false otherwise
 	 */
 	private static boolean checkWinner() {
 		for (Player p : players) {
-			if (p.getPosition() > 134) {
+			if (p.getPosition() == 135) {
 				winner = new Player(p);
 				return true;
 			}
@@ -58,7 +69,7 @@ public class CandyLandDemo {
 		String card = myCard.draw();
 		System.out.println(player.getName() + " has drawn a card '" + card + "'." );
 		if (card.length() <= 2) { //if a color or double color card has been drawn
-			move(player, card);
+			move(player, card); //problem
 		} //else move to other specified location
 		
 		//...
@@ -72,8 +83,9 @@ public class CandyLandDemo {
 	 */
 	private static int getNextPosition(int position, String color) {
 		for (int i = position + 1; i < 135; i++) {
-			if (board.getPositionColor(i).equals(color)) {
-				//return i;
+			String pColor = board.getPositionColor(i);
+			if (pColor.equals(color)) {
+				return i;
 			}
 		}
 		return 135;
@@ -87,7 +99,7 @@ public class CandyLandDemo {
 		int endPosition = -1;
 		int currentPosition = player.getPosition();
 		String color = card.substring(0,1);
-		endPosition = getNextPosition(currentPosition, color);
+		endPosition = getNextPosition(currentPosition, color); //problem
  		if (card.length() == 2) { //this is a double color card
 			endPosition = getNextPosition(endPosition, color);
 		}
@@ -116,10 +128,7 @@ public class CandyLandDemo {
 	 * Initialize necessary components for game play. Set up and initialize the players as well.
 	 */
 	private static void setUp() {
-		//initialize scanner
-		reader = new Scanner(System.in);
-		//initialize game board
-		board = new GameBoard();
+		
 		//welcome to candyland...
 		System.out.println("Welcome to CandyLand.");
 		 
@@ -161,7 +170,6 @@ public class CandyLandDemo {
 			}
 			players[i] = new Player(tempName, tempAge);
 
-			
 		}
 		
 		turnOrder();
