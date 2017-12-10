@@ -55,17 +55,17 @@ public class Card {
 		} else if (num <= 58) {
 			temp = "pp"; //There are 4 double purple cards in the deck
 		} else if (num == 59) { //CHARACTER CARDS
-			//
+			temp = "Gramma Nut";
 		} else if (num == 60) {
-			//
+			temp = "Queen Frostine";
 		} else if (num == 61) {
-			//
+			temp = "Mr. Mint";
 		} else if (num == 62) {
-			//
+			temp = "Candy Princess";
 		} else if (num == 63) {
-			//
+			temp = "Gumdrop";
 		} else if (num == 64) {
-			//
+			temp = "Candy Cane";
 		}
 		return temp;
 	}
