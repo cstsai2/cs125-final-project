@@ -3,17 +3,24 @@ import java.util.stream.*;
 
 /**
  * A class that implements a gameboard for CandyLand.
- * @author Corona
+ * @author Corona + andrea
  */
 public class GameBoard {
-	
+	/** The total number of positions, 134 color spaces + 2 to include the start and finish. */
 	private static final int NUMPOSITIONS = 136; 
+	/** An array of Positions that create the board. */
 	private Position[] board;
+	/**
+	 * Constructor.
+	 */
 	public GameBoard() {
 		//initialize board
 		board = new Position[NUMPOSITIONS];
 		setBoard();
 	}
+	/**
+	 * Sets up the board.
+	 */
 	public void setBoard() {
 		//All the red spaces
 		int[] red = {1, 7, 14, 21, 27, 33, 39, 46, 52, 64, 71, 77, 83, 89, 96, 103, 109, 115, 121, 127, 133};
@@ -57,8 +64,28 @@ public class GameBoard {
 			}
 		}
 	}
-	
+	/**
+	 * Returns the color of the specified space.
+	 * @param position - the position of interest
+	 * @return the color of the space at the position
+	 */
 	public String getPositionColor(int position) {
 		return board[position].getColor();
+	}
+	/**
+	 * Returns the condition, sticky or not, of the specific position.
+	 * @param position - the position of interest
+	 * @return true if the position is sticky, false otherwise
+	 */
+	public boolean getSticky(int position) {
+		return board[position].getSticky();
+	}
+	/**
+	 * Returns whether or not this space is a bridge.
+	 * @param position - the position of interest
+	 * @return true if the position is a bridge, false otherwise
+	 */
+	public boolean getBridge(int position) {
+		return board[position].getBridge();
 	}
 }
