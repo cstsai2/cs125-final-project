@@ -19,7 +19,7 @@ public class Position {
 	 * @param color - the color of the gameboard square
 	 */
 	public Position(String color) {
-		this.color = color.toUpperCase();
+		this.color = color;
 		isBridge = false;
 	}
 	/**
@@ -55,6 +55,6 @@ public class Position {
 	 * @return the color of the current position
 	 */
 	public String getColor() {
-		return this.color;
+		return color;
 	}
 }
