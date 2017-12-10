@@ -6,7 +6,7 @@ public class CandyLandDemo {
 	private static Player[] players;
 	private static GameBoard board;
 	private static Player winner;
-	public static void main(String[] args) {
+	public static void main(String[] args) { //change
 		setUp();
 		boolean isWinnerFound = false;
 		int playerTurn = 0;
@@ -48,7 +48,7 @@ public class CandyLandDemo {
 		
 		Card myCard = new Card();
 		String card = myCard.draw();
-
+		System.out.println(player.getName() + " has drawn a card '" + card + "'." );
 		if (card.length() <= 2) { //if a color or double color card has been drawn
 			move(player, card);
 		} //else move to other specified location
@@ -56,14 +56,19 @@ public class CandyLandDemo {
 		//...
 	}
 	private static int getNextPosition(int position, String color) {
-		return 0;
+		for (int i = position + 1; i < 135; i++) {
+			if (board.getPositionColor(i).equals(color)) {
+				return i;
+			}
+		}
+		return -1;
 	}
 	private static void move(Player player, String card) {
 		int currentPosition = player.getPosition();
-		
-		int endPosition = getNextPosition(currentPosition, card.substring(0, 1));
+		String color = card.substring(0,1);
+		int endPosition = getNextPosition(currentPosition, color);
  		if (card.length() == 2) { //this is a double color card
-			endPosition = getNextPosition(endPosition, card.substring(1,2));
+			endPosition = getNextPosition(endPosition, color);
 		}
 		
 		if (board.getBridge(endPosition)) { // player has landed on a bridge
@@ -78,12 +83,13 @@ public class CandyLandDemo {
 		player.setPosition(endPosition);
 		//dont forget about bridges!
 	}
+	/**
+	 * Print the current player positions.
+	 */
 	private static void printStatus() {
 		for (Player p : players) {
 			System.out.println(p.getName() + " is currently " + (134 - p.getPosition()) + " spaces from finish.");
 		}
-		//prints the status of each player each turn
-		//ex. player one is x number of spaces from finish, player 2 is y number, etc
 	}
 	/**
 	 * Initialize necessary components for game play. Set up and initialize the players as well.
