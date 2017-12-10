@@ -8,20 +8,25 @@ public class CandyLandDemo {
 	private static Player winner;
 	public static void main(String[] args) { //change
 		setUp();
+		
 		boolean isWinnerFound = false;
 		int playerTurn = 0;
+		
 		while(!isWinnerFound) {
-			//players take turn
+			
 			if (!players[playerTurn].getSkipCondition()) {
+				
 				System.out.println("It is now " + players[playerTurn].getName() + "'s turn.");
 				turn(players[playerTurn]);
-				//Only check for winner if  player has taken a turn
 				isWinnerFound = checkWinner();
-			} else { //if the player is skipped, they do not take a turn, and p.isSKipped = false
+				
+			} else { 
+				
 				System.out.println(players[playerTurn].getName() + "'s turn has been skipped.");
 				players[playerTurn].setSkipCondition(false);
+				
 			}
-			//increments playerTurn so next player will have their turn.
+ 
 			playerTurn++;
 			if (playerTurn > players.length - 1) { //if the last player has just taken their turn
 				playerTurn = 0;						// it wraps back around to the first player
@@ -43,7 +48,10 @@ public class CandyLandDemo {
 		}
 		return false;
 	}
-	
+	/**
+	 * Player turn.
+	 * @param player - the player whose turn it is
+	 */
 	private static void turn(Player player) {
 		
 		Card myCard = new Card();
@@ -55,18 +63,31 @@ public class CandyLandDemo {
 		
 		//...
 	}
+	/**
+	 * A helper method for move().
+	 * Get the next space with the color specified. 
+	 * @param position - current position
+	 * @param color - color of interest
+	 * @return the next closest position when the space is the color of interest, or finish if no more colors
+	 */
 	private static int getNextPosition(int position, String color) {
 		for (int i = position + 1; i < 135; i++) {
 			if (board.getPositionColor(i).equals(color)) {
-				return i;
+				//return i;
 			}
 		}
-		return -1;
+		return 135;
 	}
+	/**
+	 * Move the player to the specified color space on the card drawn.
+	 * @param player - the player who is moving
+	 * @param card - the card the player drew
+	 */
 	private static void move(Player player, String card) {
+		int endPosition = -1;
 		int currentPosition = player.getPosition();
 		String color = card.substring(0,1);
-		int endPosition = getNextPosition(currentPosition, color);
+		endPosition = getNextPosition(currentPosition, color);
  		if (card.length() == 2) { //this is a double color card
 			endPosition = getNextPosition(endPosition, color);
 		}
