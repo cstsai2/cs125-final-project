@@ -45,21 +45,37 @@ public class CandyLandDemo {
 	}
 	
 	private static void turn(Player player) {
-		//specified player takes a turn
-		//Draws a card
+		
 		Card myCard = new Card();
 		String card = myCard.draw();
-		//Move according to card
+
 		if (card.length() <= 2) { //if a color or double color card has been drawn
 			move(player, card);
 		} //else move to other specified location
 		
 		//...
 	}
-	
+	private static int getNextPosition(int position, String color) {
+		return 0;
+	}
 	private static void move(Player player, String card) {
-		int endPosition = -1; // 
+		int currentPosition = player.getPosition();
 		
+		int endPosition = getNextPosition(currentPosition, card.substring(0, 1));
+ 		if (card.length() == 2) { //this is a double color card
+			endPosition = getNextPosition(endPosition, card.substring(1,2));
+		}
+		
+		if (board.getBridge(endPosition)) { // player has landed on a bridge
+			System.out.println(player.getName() + " has landed on a bridge.");
+			//set endPosition to something else
+		}
+		
+		if (board.getSticky(endPosition)) { //the player has landed on a "sticky" space
+			System.out.println(player.getName() + " has landed on a sticky space.");
+			player.setSkipCondition(true); // Player will have to skip a turn
+		}
+		player.setPosition(endPosition);
 		//dont forget about bridges!
 	}
 	private static void printStatus() {
