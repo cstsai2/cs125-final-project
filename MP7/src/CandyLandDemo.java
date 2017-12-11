@@ -45,7 +45,7 @@ public class CandyLandDemo {
 				e.printStackTrace();
 			}
 		}
-		System.out.println("Congratulations, " + winner.getName() + " has won this round of CandyLand.");
+		System.out.println(winner.getName() + " has won this round of CandyLand. Congratulations!");
 	}
 	
 	/**
