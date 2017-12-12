@@ -1,6 +1,6 @@
 /**
  * A class that implements a card for CandyLand.
- * Cards drawn will be of varying colors of the candyland gameboard.
+ * Cards drawn will be of varying colors of the Candyland gameboard.
  * @author Corona & Andrea
  *
  */
@@ -13,7 +13,7 @@ public class Card {
 		
 	}
 	/**
-	 * Returns the color of a card that is drawn.
+	 * Returns the color of the drawm card.
 	 * @return the contents of the card drawn
 	 */
 	public String draw() {
