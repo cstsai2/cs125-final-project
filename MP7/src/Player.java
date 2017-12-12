@@ -3,6 +3,7 @@
  * @author Corona & Andrea
  */
 public class Player {
+	
 	/** Player name. */
 	private String name;
 	/** Player age. */
@@ -96,4 +97,5 @@ public class Player {
 	public void setSkipCondition(boolean condition) {
 		this.isSkipped = condition;
 	}
+	
 }
