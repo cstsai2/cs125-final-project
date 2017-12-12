@@ -15,7 +15,7 @@ public class CandyLandDemo {
 		boolean isWinnerFound = false;
 		int playerTurn = 0;
 		
-		while(!isWinnerFound) {
+		while (!isWinnerFound) {
 			
 			if (!players[playerTurn].getSkipCondition()) {
 				
