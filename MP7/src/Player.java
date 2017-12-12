@@ -1,5 +1,5 @@
 /**
- * A class that implements a player for CandyLand.
+ * A class that implements a player for the CandyLand game.
  * @author Corona & Andrea
  */
 public class Player {
@@ -42,6 +42,7 @@ public class Player {
 	}
 	/**
 	 * Get the player's age.
+	 * Age should be at least 3.
 	 * @return the player's age
 	 */
 	public int getAge() {
