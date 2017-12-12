@@ -125,7 +125,7 @@ public class CandyLandDemo {
 			player.setSkipCondition(true); // Player will have to skip a turn
 		}
 		if (board.getBridge(endPosition)) {
-			System.out.println(player.getName() + "has landed on a bridge.");
+			System.out.println(player.getName() + " has landed on a bridge.");
 			if (endPosition == 5) {
 				endPosition = 59;
 				System.out.print(player.getName() + " crosses the bridge and lands at position 59.");
