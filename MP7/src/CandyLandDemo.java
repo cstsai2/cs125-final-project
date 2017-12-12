@@ -1,17 +1,17 @@
 import java.util.Scanner;
 
 public class CandyLandDemo {
+	
 	private static int numPlayers;
 	private static Scanner reader;
 	private static Player[] players;
 	private static GameBoard board;
 	private static Player winner;
-	public static void main(String[] args) { //change
-
+	
+	public static void main(String[] args) { 
 		reader = new Scanner(System.in);
 		board = new GameBoard();
 		setUp();
-		
 		boolean isWinnerFound = false;
 		int playerTurn = 0;
 		
