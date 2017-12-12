@@ -73,10 +73,10 @@ public class CandyLandDemo {
 		if (card.length() <= 2) { //if a color or double color card has been drawn
 			move(player, card); 
 			System.out.println(player.getName() + " has moved.");
-		} else {//a character card has been drawn
-			//All the character cards
+		} else {// a character card has been drawn
+			// All the character cards
 			int[] characters = {9, 20, 42, 69, 92, 102};
-			//Character card names
+			// Character card names
 			String[] characterNames = {"Gramma Nut",  "Queen Frostine", "Mr. Mint", "Candy Princess", "Gumdrop", "Candy Cane"};
 			int newPosition = 0;
 			for (int i = 0; i < 6; i++) {
@@ -115,12 +115,12 @@ public class CandyLandDemo {
 		int endPosition = -1;
 		int currentPosition = player.getPosition();
 		String color = card.substring(0,1);
-		endPosition = getNextPosition(currentPosition, color); //problem
- 		if (card.length() == 2 && endPosition != 134) { //this is a double color card
+		endPosition = getNextPosition(currentPosition, color); // problem
+ 		if (card.length() == 2 && endPosition != 134) { // this is a double color card
 			endPosition = getNextPosition(endPosition, color);
 		}
 		
-		if (board.getSticky(endPosition)) { //the player has landed on a "sticky" space
+		if (board.getSticky(endPosition)) { // the player has landed on a "sticky" space
 			System.out.println(player.getName() + " has landed on a sticky space.");
 			player.setSkipCondition(true); // Player will have to skip a turn
 		}
@@ -150,12 +150,12 @@ public class CandyLandDemo {
 	 */
 	private static void setUp() {
 		
-		//welcome to candyland...
+		// welcome to candyland...
 		System.out.println("Welcome to CandyLand.");
 		 
-		//SET UP PLAYERS
+		// SET UP PLAYERS
 		
-		while (true) { //check value between 2 and 4
+		while (true) { // check value between 2 and 4
 			System.out.println("How many players are there? (minimum of 2 and maximum of 4)");
 			numPlayers = reader.nextInt();
 			if (numPlayers >= 2 && numPlayers <= 4) {
@@ -168,23 +168,23 @@ public class CandyLandDemo {
 		
 		for (int i = 0; i < players.length; i++) {
 			players[i] = new Player();
-			//Player name
+			// Player name
 			String tempName;
 			while (true) {
 				System.out.println("What is Player " + (i + 1) + "'s name?");
 				tempName = reader.next();
-				if (tempName != null) { //make sure name is not null
+				if (tempName != null) { // make sure name is not null
 					players[i].setName(tempName);
 					break;
 				}
 				System.out.println("Please try again.");
 			}
-			//Player age
+			// Player age
 			int tempAge = 0;
 			while (true) {
 				System.out.println("What is Player " + (i + 1) + "'s age?");
 				tempAge = reader.nextInt();
-				if (tempAge >= 3) { //make sure age is over 3
+				if (tempAge >= 3) { // make sure age is over 3
 					break;
 				}
 				System.out.println("Player must be 3 years of age or older, please try again.");
