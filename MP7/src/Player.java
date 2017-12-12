@@ -52,8 +52,8 @@ public class Player {
 	 * Set the player's age.
 	 * @param newAge - the player's new age
 	 */
-	public void setAge(int newAge) {
-		this.age = newAge;
+	public void setAge(int nAge) {
+		this.age = nAge;
 	}
 	/**
 	 * Gets the player name.
