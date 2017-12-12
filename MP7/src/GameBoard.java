@@ -67,7 +67,7 @@ public class GameBoard {
 		
 
 		
-		board[9] = new Position("Gramma Nut");
+		board[09] = new Position("Gramma Nut");
 		board[20] = new Position("Queen Frostine");
 		board[42] = new Position("Mr. Mint");
 		board[69] = new Position("Candy Princess");
