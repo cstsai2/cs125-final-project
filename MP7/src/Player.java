@@ -3,7 +3,6 @@
  * @author Corona & Andrea
  */
 public class Player {
-	
 	/** Player name. */
 	private String name;
 	/** Player age. */
