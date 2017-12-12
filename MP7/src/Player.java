@@ -9,7 +9,7 @@ public class Player {
 	private int age;
 	/** Tracks player position. */
 	private int position;
-	/** Tracks if player will have a turn skipped.*/
+	/** Tracks if player will have a turn skipped. */
 	private boolean isSkipped;
 	
 	/**
@@ -96,5 +96,4 @@ public class Player {
 	public void setSkipCondition(boolean condition) {
 		this.isSkipped = condition;
 	}
-	
 }
