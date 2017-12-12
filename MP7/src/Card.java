@@ -22,11 +22,11 @@ public class Card {
 		return color;
 	}
 	/**
-	 * Determining the color of the card given the random number generated. Random number is between
+	 * Determining the color of the card given the random number generated #. Random number is between
 	 * 1 and 64 as there are 64 cards total in the deck and is used to accurately model the probability
 	 * of drawing a card based on the standard CandyLand deck.
 	 * @param num - a random number between 1 and 64
-	 * @return a string representing the card that is drawn
+	 * @return a string representing the card that is drawn named temp
 	 */
 	private String determineColor(int num) {
 		String temp = "";
@@ -55,17 +55,17 @@ public class Card {
 		} else if (num <= 58) {
 			temp = "pp"; //There are 4 double purple cards in the deck
 		} else if (num == 59) { //CHARACTER CARDS
-			temp = "Gramma Nut";
-		} else if (num == 60) {
-			temp = "Queen Frostine";
-		} else if (num == 61) {
-			temp = "Mr. Mint";
-		} else if (num == 62) {
-			temp = "Candy Princess";
-		} else if (num == 63) {
-			temp = "Gumdrop";
+			temp = "Gramma Nut"; //There are 6 character cards in the deck
+		} else if (num == 60) { 
+			temp = "Queen Frostine"; //There are 6 character cards in the deck
+		} else if (num == 61) { 
+			temp = "Mr. Mint"; //There are 6 character cards in the deck
+		} else if (num == 62) { 
+			temp = "Candy Princess"; //There are 6 character cards in the deck
+		} else if (num == 63) { 
+			temp = "Gumdrop"; //There are 6 character cards in the deck
 		} else if (num == 64) {
-			temp = "Candy Cane";
+			temp = "Candy Cane"; //There are 6 character cards in the deck
 		}
 		return temp;
 	}
