@@ -128,10 +128,10 @@ public class CandyLandDemo {
 			System.out.println(player.getName() + " has landed on a bridge.");
 			if (endPosition == 5) {
 				endPosition = 59;
-				System.out.print(player.getName() + " crosses the bridge and lands at position 59.");
+				System.out.println(player.getName() + " crosses the bridge and lands at position 59.");
 			} else if (endPosition  == 35) {
 				endPosition = 46;
-				System.out.print(player.getName() + " crosses the bridge and lands at position 46.");
+				System.out.println(player.getName() + " crosses the bridge and lands at position 46.");
 			}
 		}
 		player.setPosition(endPosition);
