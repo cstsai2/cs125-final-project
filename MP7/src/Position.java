@@ -4,6 +4,7 @@
  *
  */
 public class Position {
+	
 	private String color;
 	private boolean isBridge;
 	private boolean isSticky;
