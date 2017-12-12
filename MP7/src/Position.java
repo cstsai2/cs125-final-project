@@ -4,15 +4,13 @@
  *
  */
 public class Position {
-
 	private String color;
 	private boolean isBridge;
 	private boolean isSticky;
 	/** 
 	 * Empty Constructor.
 	 */
-	public Position() {
-		
+	public Position() {	
 	}
 	/**
 	 * Create a game board position with a specified color.
@@ -57,4 +55,5 @@ public class Position {
 	public String getColor() {
 		return color;
 	}
+	
 }
